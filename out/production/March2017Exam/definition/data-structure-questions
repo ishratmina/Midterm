@@ -1,31 +1,100 @@
 Please answer the below Data Structure Questions:
 
 why do we need data structure?
-List out the areas in which data structures are applied extensively?
-what is an Array?
-what is the difference between the Array and ArrayList?
-what is LinkedList?
-what is queue?
-what is stack?
-what is FIFO and LIFO?
-what is the order of complexity?
-what is the best case to search an element from an array?
-what is the worst case to search an element from an array?
-what is tree in data structure?
-what is graph in data structure?
-what is the difference between the HashTable and HashMap?
-What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.
-How HashMap works in java?
-What is ArrayIndexOutOfBoundsException in java? When it occurs?
-What are the different ways of copying an array into another array?
-What is difference between an array and a linked list?
-What is DFS and BFS?
-What is Recursion?
-What is Big-(O)-notation?
-Outlined different kind of sorting algorithm with time complexity?
+Data Structure is needed to find out ways in which  data is arranged in a computer's memory or stored on disk.
 
-Draw a table with time complexity in which it will summarize all the data structure feature's advantages and disadvantages.
-  a)In terms of Accessing element.
-  b)In terms of Inserting element.
-  c)In terms of Searching element.
-  d)In terms of Removing element.
+List out the areas in which data structures are applied extensively?
+1.Design Operating System
+2.Database Management System
+3.Statistical analysis package
+4.Numerical Analysis
+5.Graphics
+6.Artificial Intelligence
+7.Simulation
+
+what is an Array?
+An array is a data structure that stores a collection of values of the same type.You access each individual value
+through an integer index.
+
+what is the difference between the Array and ArrayList?
+The difference between an Array and ArrayList is that an Array is a fixed length data structure while ArrayList is a variable length collection class. Primitives cannot be stored in ArrayList, it can only contain objects and Array can contain both primitive and object in Java.
+
+what is LinkedList?
+Linked list is a linear data structure where each element is a separate object. Each element (which is called a
+node) of a list is comprising of two items - the data and a reference to the next node.
+
+what is queue?
+A queue is a data structure that is somewhat like a stack, except that in a queue the first item inserted is the
+first to be removed.
+
+what is stack?
+A stack allows access to only one data item that is the last item inserted.If you remove this item, you can access
+the next-to-last item inserted, and so on.
+
+what is FIFO and LIFO?
+FIFO- First In First Out
+LIFO- Last In First Out
+
+
+what is the order of complexity?
+
+
+what is the best case to search an element from an array?
+
+what is the worst case to search an element from an array?
+
+what is tree in data structure?
+A tree is a data structure consisting of nodes organized as a hierarchy.
+
+what is graph in data structure?
+Graph is a data structure that consists of two components. A finite set of vertices also called as nodes and a finite set of ordered pair of the form (u, v) called as edge.
+
+what is the difference between the HashTable and HashMap?
+
+HashMap is non synchronized and not thread safe. HashTable is thread safe and synchronized.
+HashMap allows one null key and any number of null values, while HashTable do not allow null keys and null values in the HashTable object.
+
+What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.
+
+RDBMS – Array (Array of structures)
+      Network data model – Graph
+      Hierarchical data model – Trees
+
+How HashMap works in java?
+
+HashMap in Java works on hashing principle. It is a data structure which allows us to store object and retrieve it in constant time O(1) provided we know the key. In hashing, hash functions are used to link key and value in HashMap. Objects are stored by calling put(key, value) method of HashMap and retrieved by calling get(key) method. When we call put method, hashcode() method of the key object is called so that hash function of the map can find a bucket location to store value object, which is actually an index of the internal array, known as the table. HashMap internally stores mapping in the form of Map.Entry object which contains both key and value object. When you want to retrieve the object, you call the get() method and again pass the key object. 
+
+
+
+What is ArrayIndexOutOfBoundsException in java? When it occurs?
+An object of this class is thrown when code accesses an array with an illegal index. This happens when an index is negative or greater than or equal to the length of the array being indexed.
+ 
+
+What are the different ways of copying an array into another array?
+Object.clone(): Object class provides clone() method and since array in java is also an Object, you can use this method to achieve full array copy. This method will not suit you if you want partial copy of the array.
+System.arraycopy(): System class arraycopy() is the best way to do partial copy of an array. It provides you an easy way to specify the total number of elements to copy and the source and destination array index positions
+Arrays.copyOf(): If you want to copy first few elements of an array or full copy of array, you can use this method. Obviously it’s not versatile like System.arraycopy() but it’s also not confusing and easy to use.
+Arrays.copyOfRange(): If you want few elements of an array to be copied, where starting index is not 0, you can use this method to copy partial array.
+
+
+What is difference between an array and a linked list?
+Array is linear data structure. Linked list is linear and non-linear data structure.Array elements cannot be added, deleted once it is declared. The nodes in the linked list can be added and deleted from the list.
+
+What is DFS and BFS?
+DFS Depth First Search and BFS Breadth First Search are search algorithms used for graphs and trees.
+
+What is Recursion?
+Recursion is a programming technique in which a method calls itself.
+
+What is Big-(O)-notation?
+Big O notation is used to describe the performance or complexity of an algorithm. It specifically describes the worst-case scenario, and can be used to describe the execution time required or the space used in memory or on disk by an algorithm.
+
+Outlined different kind of sorting algorithm with time complexity?
+:               Best case     Average case     Worst case
+Selection sort     O(n^2)        O(n^2)           O(n^2)
+Insertion sort     O(n)          O(n^2)           O(n^2)
+Merge sort         O(n log n)    O(n log n)       O(n log n)
+Quick sort         O(n log n)    O(n log n)       O(n^2)
+Bubble sort        O(n^2)        O(n^2)           O(n^2)
+Heap sort          O(n log n)    O(n log n)       O(n log n)
+Bucket Sort        O(n • k)      O(n 2 )           O(n • k)

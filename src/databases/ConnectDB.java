@@ -8,7 +8,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.connection.*;
 import org.bson.Document;
-
+import databases.User;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.sql.*;
 import java.sql.Connection;
 import java.util.*;
+
 
 /**
  * Created by mrahman on 04/22/17.
@@ -112,6 +113,28 @@ public class ConnectDB {
             e.printStackTrace();
         }
     }
+    
+    public void InsertDataFromArryToMySql(String tableName, String column1, String column2, String [] ArrayData1, long [] ArrayData2)
+    {
+        try {
+            connectToMySql();
+            for(int n=0; n<ArrayData1.length; n++){
+                ps.setString(1,ArrayData1[n]);
+            }
+            for(int n=0; n<ArrayData2.length; n++){
+                ps.setLong(2,ArrayData2[n]);
+            }
+            ps.executeUpdate();
+            
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void InsertDataFromStringToMySql(String ArrayData,String tableName, String columnName)
     {
@@ -133,7 +156,7 @@ public class ConnectDB {
         List<String> data = new ArrayList<String>();
 
         try {
-            connectToMySql();
+            Connection connect = connectToMySql();
             statement = connect.createStatement();
             resultSet = statement.executeQuery(passQuery);
             data = getResultSetData(resultSet, dataColumn);
@@ -149,11 +172,12 @@ public class ConnectDB {
     {
         try {
             connectToMySql();
+           
             for(Object st:list){
                 ps = connect.prepareStatement("INSERT INTO "+tableName+" ( "+columnName+" ) VALUES(?)");
                 ps.setObject(1,st);
                 ps.executeUpdate();
-            }
+            } 
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -201,7 +225,7 @@ public class ConnectDB {
     public static void insertProfileToMySql(String tableName, String columnName1, String columnName2)
     {
         try {
-            connectToMySql();
+        	connectToMySql();
                 ps = connect.prepareStatement("INSERT INTO "+tableName+" ( " + columnName1 + "," + columnName2 + " ) VALUES(?,?)");
                 ps.setString(1,"Li Li");
                 ps.setInt(2,3578);
@@ -244,17 +268,20 @@ public class ConnectDB {
          }
        return list;
     }
-
+/*
     public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
-        /*
-        insertProfileToMySql("profile","name", "id");
+    	
+       // insertProfileToMySql("profile","name", "id");
+      
+        /*  
         List<User> list = readFromMySql();
         for(User user:list){
             System.out.println(user.getName()+ " " + user.getId());
         }
+         
         String message = insertToMongoDB(new User("Huda ParkingIssue", 3599));
         List<User> user = readFromMongoDB();
-        */
-    }
+       
+    }*/
 
 }

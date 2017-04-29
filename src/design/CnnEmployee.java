@@ -1,5 +1,7 @@
 package design;
 
+import java.util.Scanner;
+
 public class CnnEmployee {
 
 	/**
@@ -14,9 +16,29 @@ public class CnnEmployee {
 	 *
 	 **/
 	public static void main(String[] args) {
+	
 		
-
-
+		EmployeeInfo object = new EmployeeInfo("Ishrat",15,"full time",10,"good");
+		
+		String name = object.employeeName();
+		int employeeId = object.employeeId();
+		String employeeType = object.employeeType();
+		String performance = object.performance();
+		String department = object.assignDepartment(employeeId);
+		int salary = object.calculateSalary();
+		int bonus = object.calculateEmployeeBonus();
+		int pension = object.calculateEmployeePension();
+		String benefitLayout = object.benefitLayout(employeeType);
+		
+		System.out.println("Name of the Employee is : " + name);
+		System.out.println("Employee ID             : " + employeeId);
+		System.out.println("Assigned Department     : " + department);
+		System.out.println("Salary is               : " + salary);
+		System.out.println("Fulltime or Part-time   : " + employeeType);
+		System.out.println(name+" received         : " + benefitLayout);
+		System.out.println("Bonus is                : " + bonus);
+		System.out.println("Pension is              : "+ pension);
+	
 	}
 
 }

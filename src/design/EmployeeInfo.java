@@ -1,6 +1,8 @@
 package design;
 
-public class EmployeeInfo{
+import java.util.ArrayList;
+
+public class EmployeeInfo {
 	
  /*This class can be implemented from Employee interface then add additional methods in EmployeeInfo class.
  * Also, Employee interface can be implemented into an abstract class.So create an Abstract class
@@ -17,7 +19,13 @@ public class EmployeeInfo{
 	 * declare few static and final fields and some non-static fields
 	 */
 	static String companyName;
-	
+	static int employeeId;
+	static String name;
+	static int salary;
+	static String department;
+	static String employeeType;
+	static String performance;
+	static int workingYear;
 	/*
 	 * You must implement the logic for below 2 methods and 
 	 * following 2 methods are prototype as well for other methods need to be design,
@@ -28,13 +36,82 @@ public class EmployeeInfo{
 	 * you must have multiple constructor.
 	 * Must implement below constructor.
 	 */
+		
 	public EmployeeInfo(int employeeId){
-		
-	}
-    public EmployeeInfo(String name, int employeeId){
-		
+		this.employeeId = employeeId;
 	}
 	
+    public EmployeeInfo(String name, int employeeId, String employeeType, int workingYear, String performance){
+		this.name = name;
+		this.employeeId=employeeId;
+		this.employeeType= employeeType;
+		this.workingYear=workingYear;
+		this.performance = performance;
+    }
+    
+    
+    public static int employeeId(){
+    	return employeeId;
+    }
+    
+    public static String employeeName(){
+    	return name;
+    }
+    
+    public static String employeeType(){
+    	return employeeType;
+    }
+    
+    public static String performance(){
+    	return performance;
+    }
+    
+    public static int salary(){
+    	return salary;
+    }
+    
+    public static String assignDepartment(int employeeId){
+    	
+    	if (employeeId<10){
+    		department = "Sales";
+    		return department;
+    	}
+    	else if (employeeId>=10 && employeeId<19){
+    		department = "Production";
+    		return department;
+		}
+    	else if (employeeId>=20 && employeeId<30){
+    		department = "Admin";	
+    		return department;
+		}
+    	return department;
+    }
+    
+    public static int calculateSalary(){
+    	
+    	if (department == "Sales"){
+    		salary = 50000;
+    	    return salary;
+    	}
+    	else if (department == "Production"){
+    		salary = 60000;
+    		return salary;
+    	}
+    	else if (department == "Admin"){
+    		salary = 70000;
+    		return salary;
+    	}
+    	return salary;
+    }
+    
+    public static String benefitLayout(String employeeType){
+    	
+       	if (employeeType == "full time") 
+    		return "full benefit including medical";
+    	else return "no benefit";
+    }
+    
+    
 	/*
 	 * This methods should calculate Employee bonus based on salary and performance.
 	 * Then it will return the total yearly bonus. So you need to implement the logic.
@@ -44,8 +121,15 @@ public class EmployeeInfo{
 	 * 
 	 */
 	public static int calculateEmployeeBonus(){
-		int total=0;
-		return total;
+		
+		if (performance=="good")
+			return (salary*10)/100;	
+		
+		else if (performance == "average")
+			return (salary*8)/100;
+		
+		else return 0;
+		
 	}
 	
 	/*
@@ -57,6 +141,14 @@ public class EmployeeInfo{
 	 */
 	public static int calculateEmployeePension(){
 		int total=0;
+		ArrayList<Integer> bonusInEachYear = new ArrayList<Integer>();
+		
+		for (int i=0; i<workingYear; i++)
+		bonusInEachYear.add((salary*5)/100);  	
+		
+		for (int j=0; j<bonusInEachYear.size(); j++)
+			total = total+bonusInEachYear.get(j);
+		
 		return total;
 	}
 }

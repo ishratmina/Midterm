@@ -1,5 +1,7 @@
 package math;
 
+import java.util.Scanner;
+
 /**
  * Created by mrahman on 04/22/17.
  */
@@ -11,6 +13,17 @@ public class Factorial {
          * Write a java program to find Factorial of a given number using Recursion as well as Iteration.
          *
          */
+    	Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number whose factorial is to be found: ");
+        int n = scanner.nextInt();
+        int result = 1;
+        for (int i = 1; i<n+1; i++) {
+            result = result*i;
+            if (i!=n)
+            System.out.println(i + "x");
+            else System.out.println(i+ "=" + result);
 
+        }
     }
+
 }
